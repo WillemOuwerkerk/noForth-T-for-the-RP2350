@@ -14,10 +14,10 @@ example: noforth t 230429.uf2
 
 
 Note the meta compiler uses these files:
-- RP2040-opcodes.W32
+- noForth-T-asm-M33
 - RP2040-DAS
-- T-meta...
-- T-Targ...
+- T-meta-2026-...
+- T-targ-2350...
 - boot-nof2.bin
 
 **Take care:**
