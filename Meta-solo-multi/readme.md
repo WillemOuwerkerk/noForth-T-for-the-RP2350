@@ -1,4 +1,3 @@
-
 <h1 align="center"> Using the noForth t metacompiler</h1>
 
 **Single core meta:**
