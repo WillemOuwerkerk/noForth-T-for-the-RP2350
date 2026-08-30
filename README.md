@@ -11,6 +11,8 @@ All code should run on noForth t for the RP2350 solo & duo from version 260826 o
 </p>
 
 ***
+- [****Metacompiler for noForth tv# solo****](Meta solo multi) ; Metacompiler for noForth t solo multi, runs in win32forth
+***
 
 - [****Configuration****](Configuration) ; Setting the system clock, baudrate & pin for S?
 - [****Dual core****](Dual-core) ; Fifo word set & words to start & stop code on the second core
