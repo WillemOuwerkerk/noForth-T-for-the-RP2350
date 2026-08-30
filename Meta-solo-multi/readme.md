@@ -1,5 +1,5 @@
 
-            using noForth T metacompiler
+<h1 align="center"> Using the noForth t metacompiler</h1>
 
 1) Single core meta:
     Start Win32Forth
