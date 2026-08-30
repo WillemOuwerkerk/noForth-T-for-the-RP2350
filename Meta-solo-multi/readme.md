@@ -6,8 +6,8 @@
 - Select the folder: meta solo xxx
 - include T-meta xxx.f
 - include T-targ xxx.f
-    - Type + key (or - key for a version without vocabularies)
-    - Type . key
+    - Type **+** key (or - key for a version without vocabularies)
+    - Type **.** key
           
 The noForth T UF2 file is ready with the current date in the
 filename, it includes sboot-nof2.bin & the generated binary
