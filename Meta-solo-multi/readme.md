@@ -3,7 +3,7 @@
 
 **Single core meta:**
 - Start Win32Forth
-- Select the folder: meta T
+- Select the folder: meta solo xxx
 - include T-meta xxx.f
 - include T-targ xxx.f
     - Type + key (or - key for a version without vocabularies)
