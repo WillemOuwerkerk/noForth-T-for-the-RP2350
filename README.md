@@ -1,7 +1,7 @@
 # noForth-T-for-the-RP2350
 noForth t for the RP2350 sources and example source files
 
-These are all hardware examples to learn how to use the internal hardware of the RP2040.
+These sources ar hereto document noForth and the hardware examples are ther to learn how to use the the RP2350.
 All code should run on noForth t solo & duo from version 260826 onwards. 
 
 <p align="center">
