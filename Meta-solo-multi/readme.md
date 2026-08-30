@@ -1,26 +1,27 @@
 
 <h1 align="center"> Using the noForth t metacompiler</h1>
 
-1) Single core meta:
-    Start Win32Forth
-    Select the folder: meta T
-    include T-meta.f
-    include T-targ.f
-        Type + key (or - key for a version without vocabularies)
-        Type . key
-    The noForth T UF2 file is ready with the current date in the
-    filename, it includes sboot-nof2.bin & the generated binary
-    example: noforth t 230429.uf2
+**Single core meta:**
+- Start Win32Forth
+- Select the folder: meta T
+- include T-meta xxx.f
+- include T-targ xxx.f
+    - Type + key (or - key for a version without vocabularies)
+    - Type . key
+          
+The noForth T UF2 file is ready with the current date in the
+filename, it includes sboot-nof2.bin & the generated binary
+example: noforth t 230429.uf2
 
 
 Note the meta compiler uses these files:
-    RP2040-opcodes.W32
-    RP2040-DAS
-    T-meta...
-    T-Targ...
-    boot-nof2.bin
+- RP2040-opcodes.W32
+- RP2040-DAS
+- T-meta...
+- T-Targ...
+- boot-nof2.bin
 
-Take care:
+**Take care:**
 
     In the target files sometimes hard coded offsets & addresses are used.
     Especially the duo versions because they address each other too.
