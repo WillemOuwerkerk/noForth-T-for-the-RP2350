@@ -1,4 +1,4 @@
-\ noForth library file, about 372 kBytes
+\ noForth library file, about 376 kBytes
 
 chapter COPYRIGHT
 cr .(    COPYRIGHT {c} 2024-2026, Willem Ouwerkerk & Albert Nijhof    )
@@ -17,7 +17,7 @@ chapter VERSION
 cr .(      NEED version 0.53r      )
 cr .(  Library version 0.53 RP2350 )
 cr .(                              )
-cr .( The size is about 372 kBytes )
+cr .( The size is about 376 kBytes )
 %%
 
 chapter UART
@@ -1559,9 +1559,9 @@ v: extra definitions
 v: fresh
 %%
 
-chapter LOBIS
-\ mask is a 32-bits data and is written to the low GPIO port
-code LO!         ( mask -- )
+chapter LIOS
+\ Data u is 32-bits and is written to the low GPIO port
+code LIO!        ( u -- )
     day 0 # movs,       \ 1 High mask zero
     0 0 tos day 0 mcrr, \ 1 Store 32-bit data in GPIO
     tos  sp )+ ldr,     \ 2 Pop stack
@@ -1569,7 +1569,7 @@ code LO!         ( mask -- )
 end-code
 
 \ mask is a 32-bits bitmask and is written to the low GPIO port
-code LOBIX       ( mask -- )
+code LIOX       ( mask -- )
     day 0 # movs,       \ 1 High mask zero
     0 1 tos day 0 mcrr, \ 1 Toggle GPIO with 32-bit mask
     tos  sp )+ ldr,     \ 2 Pop stack
@@ -1577,7 +1577,7 @@ code LOBIX       ( mask -- )
 end-code
 
 \ mask is a 32-bits bitmask and is written to the low GPIO port
-code LOBIS       ( mask -- )
+code LIOS       ( mask -- )
     day 0 # movs,       \ 1 High mask zero
     0 2 tos day 0 mcrr, \ 1 Set GPIO with 32-bit mask
     tos  sp )+ ldr,     \ 2 Pop stack
@@ -1585,22 +1585,22 @@ code LOBIS       ( mask -- )
 end-code
 
 \ mask is a 32-bits bitmask and is written to the low GPIO port
-code LOBIC       ( mask -- )
+code LIOC       ( mask -- )
     day 0 # movs,       \ 1 High mask zero
     0 3 tos day 0 mcrr, \ 1 Clear GPIO with 32-bit mask
     tos  sp )+ ldr,     \ 2 Pop stack
     next,               \ 6
 end-code
 
-code LOBIT      ( mask -- 0|b )
+code LIO@       ( mask -- 0|b )
     sun tos movs,       \ 1 Copy mask
     0 0 tos day 8 mrrc, \ 1 Read GPIO as 32-bit mask
     tos sun ands,       \ 1 Leave masked result
     next,               \ 6
 end-code
 
-\ mask is a 32-bits data and is written to the low OE port
-code LO-OE!     ( mask -- )
+\ Data u is 32-bits and is written to the low OE port
+code LOE!       ( u -- )
     day 0 # movs,       \ 1 High mask zero
     0 0 tos day 4 mcrr, \ 1 Store 32-bit data to OE
     tos  sp )+ ldr,     \ 2 Pop stack
@@ -1608,7 +1608,7 @@ code LO-OE!     ( mask -- )
 end-code
 
 \ mask is a 32-bits bitmask and is written to the low OE port
-code LO-OEX     ( mask -- )
+code LOEX       ( mask -- )
     day 0 # movs,       \ 1`High mask zero
     0 1 tos day 4 mcrr, \ 1 Toggle OE with 32-bit mask
     tos  sp )+ ldr,     \ 2 Pop stack
@@ -1616,9 +1616,9 @@ code LO-OEX     ( mask -- )
 end-code
 %%
 
-chapter HIBIS
-\ mask is a 32-bits data and is written to the high GPIO port
-code HI!         ( mask -- )
+chapter HIOS
+\ Data u is 32-bits and is written to the high GPIO port
+code HIO!       ( u -- )
     day 0 # movs,       \ 1 Low mask zero
     0 0 day tos 0 mcrr, \ 1 Store 32-bit data to GPIO
     tos  sp )+ ldr,     \ 2 Pop stack
@@ -1626,7 +1626,7 @@ code HI!         ( mask -- )
 end-code
 
 \ mask is a 32-bits bitmask and is written to the high GPIO port
-code HIBIX       ( mask -- )
+code HIOX       ( mask -- )
     day 0 # movs,       \ 1 Low mask zero
     0 1 day tos 0 mcrr, \ 1 Toggle GPIO with 32-bit mask
     tos  sp )+ ldr,     \ 2 Pop stack
@@ -1634,7 +1634,7 @@ code HIBIX       ( mask -- )
 end-code
 
 \ mask is a 32-bits bitmask and is written to the high GPIO port
-code HIBIS       ( mask -- )
+code HIO       ( mask -- )
     day 0 # movs,       \ 1 Low mask zero
     0 2 day tos 0 mcrr, \ 1 Set GPIO with 32-bit mask
     tos  sp )+ ldr,     \ 2 Pop stack
@@ -1642,22 +1642,22 @@ code HIBIS       ( mask -- )
 end-code
 
 \ mask is a 32-bits bitmask and is written to the high GPIO port
-code HIBIC       ( mask -- )
+code HIOC       ( mask -- )
     day 0 # movs,       \ 1`Low mask zero
     0 3 day tos 0 mcrr, \ 1 Clear GPIO with 32-bit mask
     tos  sp )+ ldr,     \ 2 Pop stack
     next,               \ 6
 end-code
 
-code HIBIT      ( mask -- 0|b )
+code HIO@       ( mask -- 0|b )
     sun tos movs,       \ 1 Copy mask
     0 0 day tos 8 mrrc, \ 1 Read GPIO as 32-bit mask
     tos sun ands,       \ 1 Leave masked result
     next,               \ 6
 end-code
 
-\ mask is a 32-bits data and is written to the high OE port
-code HI-OE!     ( mask -- )
+\ Data u is 32-bits and is written to the high OE port
+code HOE!       ( u -- )
     day 0 # movs,       \ 1 High mask zero
     0 0 day tos 4 mcrr, \ 1  Store 32-bits data to OE
     tos  sp )+ ldr,     \ 2 Pop stack
@@ -1665,7 +1665,7 @@ code HI-OE!     ( mask -- )
 end-code
 
 \ mask is a 32-bits bitmask and is written to the high OE port
-code HI-OEX     ( mask -- )
+code HOEX       ( mask -- )
     day 0 # movs,       \ 1 High mask zero
     0 1 day tos 4 mcrr, \ 1 Toggle OE with 32-bit mask
     tos  sp )+ ldr,     \ 2 Pop stack
@@ -3098,7 +3098,7 @@ This program is written for a 32-bits cell size
 *)
 
 v: inside also definitions
-3 constant #PIO                 \ Number of PIO's
+3 constant #PIO             \ Number of PIO's
 0 value 'PIO                \ Pointer to current active PIO
 
 (* PIO internals
@@ -5722,6 +5722,9 @@ shield LM75\  ( LM75 demo )
 
 chapter WS2812
 \ Control two WS2812 LEDs on GPIO23 & GPIO28 separately
+
+need piobase\
+
 hex
 : WS2812    ( -- )
     0000 50200000 !
@@ -5765,9 +5768,11 @@ hex
     24005EE0 502000F4 !
     0006 400280BC !
     0000 502000F0 !
-    1 50200000 !    \ sm-0 on
-    400 ms
-    3 50200000 ! ;  \ sm-0 & sm-1 on
+\ Activate PIO program on a valid frequency
+    0 =pio                      \ Select used PIO
+    dm 3,333,333 0 set-freq     \ Set correct frequency
+    dm 3,333,333 1 set-freq
+    1 0 sm-on  400 ms  1 1 sm-on ; \ Activate state machines
 %%
 
 chapter WS2812START\
@@ -10562,8 +10567,7 @@ pio}
 v: inside
 : .PIO      ( -- )          ."  PIO " pio? 1 and 1 .r ;
 
-export
-cr sm# .  .pio
+cr 0 .sm
 %%
 
 
@@ -11743,25 +11747,9 @@ chapter WS2812-4
 
 need 2@
 need 2!
+need PIOBASE\
 
 hex
-v: inside also definitions
-0 value 'PIO                \ Pointer to current active PIO
-: PIO-ADDR  ( offset -- a ) cells  'pio + ; \ Convert to real address
-: PIO@      ( offset -- x ) pio-addr @ ;
-: PIO!      ( x offset -- ) pio-addr ! ;
-: >FIELD    ( x mask pos -- y ) >r and  r> lshift ; \ Place bitfield
-: FIELD!    ( data mask pos offset -- ) \ Replace any bit field with new data
-    >r  2dup lshift invert  r@ pio@ and \ Erase bit-field
-    >r  >field  r> or  r> pio! ;        \ Set bit-field & show result
-v: extra definitions
-: SM-ON     ( f sm -- )     1 swap 0 field! ; \ (De)activate a state machine
-: SET-PIO   ( pio -- )      0<> 100000 and  50200000 +  to 'pio ;
-: TX-DEPTH  ( sm -- +n )    3 pio@  swap 8 * rshift  F and ; \ Fifo depth
-: RX-DEPTH  ( sm -- +n )    3 pio@  swap 8 * 4 + rshift  F and ; \ Idem
-: >TXF      ( u sm -- )     4 + pio! ;      \ Store TX data in FIFO
-: RXF>      ( sm -- u )     8 + pio@ ;      \ Fetch RX data from FIFO
-
 \ PIO-programs doing dual WS2812 & 115k2 UART on GPIO6 & GPIO7
 : PIO-PROG
     0000 50200000 !
@@ -11835,8 +11823,12 @@ v: extra definitions
     44101CE7 50200124 !
     0006 4001403C !
     0015 50200120 !
-    000D 50200000 !         \ Start all used state machines
-    0000 set-pio ;
+\ Start all used state machines on correct frequecies
+    0 set-pio 
+    dm 6,666,666   0 set-freq
+    dm 115,200 8 * 2 set-freq 
+    dm 115,200 8 * 3 set-freq
+    0 0 sm-on  0 2 sm-on  0 3 sm-on ;
 
 dm 300 value #LEDS     \ Number of WS2812 LEDs connected
      0 value #POS      \ Next LED position to address
@@ -12171,7 +12163,7 @@ hex ( -- )
 
 clean-pio  decimal      \ Empty code space, start at zero
 0 0 {pio                \ Use state machine-0 on PIO-0
-    160000 =freq        \ On 4 * 40 kHz frequency (6.25 µs ticks)
+    160,000 =freq       \ On 4 * 40 kHz frequency (6.25 µs ticks)
     05 1 =out-pins      \ GPIO 5 for OUT & SET
     05 1 =set-pins
     05 =in-pin          \ GPIO 5 for IN & JMP
@@ -12214,25 +12206,7 @@ pio}
 
 chere
 need arshift
-
-v: inside also  definitions
-2 constant #PIO              \ Number of PIO's
-0 value 'PIO                 \ Pointer to current active PIO
-: PIO@      ( offset -- x )  cells 'pio + @ ;
-: PIO!      ( x offset -- )  cells 'pio + ! ;
-
-v: extra definitions
-: =PIO      ( pio -- )       #pio 1- umin  100000 *  50200000 +  to 'pio ; \ Select active pio block
-
-: RX-DEPTH  ( sm -- +n )     3 pio@  swap 8 * 4 + rshift  F and ; \ Idem
-: RXF>      ( sm -- u )      8 + pio@ ;      \ Fetch RX data from FIFO
-
-v: inside definitions
-create SM-OFFSETS    32 c, 38 c, 3E c, 44 c, align  \ Address SM control blocks
-: SM-OFFSET+ ( off1 sm -- off2 ) sm-offsets + c@ + ;
-
-v: extra definitions
-: EXEC-OPC  ( instr sm -- )  4 swap sm-offset+ pio! ; \ Exec. instruction
+need piobase\
 
 hex
 : PIO-PROG
@@ -12274,8 +12248,9 @@ hex
     00008020 50200094 !
     05013080 502000CC !
     00000000 502000D8 !
-    00000001 50200000 !
-    00000000 =pio ;
+    0 =pio                  \ Slect used PIO
+    dm 160,000 0 set-freq   \ Set wanted frequency for SM0
+    1 0 sm-on ;             \ Start SM0
 pio-prog
 
 v: inside definitions

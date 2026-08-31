@@ -17,7 +17,7 @@ This program is written for a 32-bits cell size
 
 hex
 v: inside also definitions
-2 constant #PIO                 \ Number of PIO's
+3 constant #PIO             \ Number of PIO's
 0 value 'PIO                \ Pointer to current active PIO
 
 (* PIO internals
