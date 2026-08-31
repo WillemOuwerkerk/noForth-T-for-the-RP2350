@@ -12,4 +12,5 @@
 
 <h3>Loading and using LOOK</h3>
 
-![](../Pics/library.jpg)
+<img width="530" height="249" alt="image" src="https://github.com/user-attachments/assets/b5de363a-df11-4f0d-b6f6-425a3cb4ca0d" />
+
