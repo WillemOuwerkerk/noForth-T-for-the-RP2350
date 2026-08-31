@@ -1,6 +1,6 @@
 ## A library in Flash for RP2350
 
-- [****library V2 for RP2350 a short overview.pdf****](library%20V2%20RP2350%20a%20short%20overview.pdf) ; Contains a short overview of all library chapters
+- [****library V2 for RP2350 a short overview.pdf****](library%20V2%20for%20RP2350%20a%20short%20overview.pdf) ; Contains a short overview of all library chapters
 - [****need-053r.f****](need-053r.f) ; Contains the basic routines for using the library
 - [****write-lib-03r.f****](write-lib-03c.f) ; Read write and erase routines for the library
 - [****Lib-source-53-RP2350.f****](Lib-source-53-RP2350.f) ; The complete library in source form
