@@ -7,4 +7,5 @@
 <h3>Hard fault example</h3>
 
 
-![](../Pics/hardfault.jpg)
+<img width="394" height="190" alt="image" src="https://github.com/user-attachments/assets/860658bc-3b79-4c8b-91dc-4722e17e0587" />
+
