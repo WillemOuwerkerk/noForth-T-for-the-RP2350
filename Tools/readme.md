@@ -3,7 +3,7 @@
 - [****slow-down.f****](slow-down.f) ; Add startup file on 16MHz only for low power usage
 - [****print-worktime.f****](print-worktime.f) ; Show uptime after the last restart
 - [****print-cfg-rp2350.f****](print-cfg-rp2350.f) ; Print current configuration in detail
-- [****PIO-assembler-v2350.f****](PIO-assembler-v2350.f) ; RP2350 PIO assembler
+- [****PIO-assembler-RP2350.f****](PIO-assembler-RP2350.f) ; RP2350 PIO assembler
 - [****PIO-disassembler-v2.f****](PIO-disassembler-v2.f) ; RP2350 PIO disassembler
 - [****piobase.f****](piobase.f) ; Minimal PIO control wordset, for use with exported files
 - [****noForth-T-tools+.f****](noForth-T-tools+.f) ; Extended noForth tools set, with SEE etc.
