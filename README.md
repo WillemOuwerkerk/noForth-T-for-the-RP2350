@@ -21,6 +21,7 @@ All code should run on noForth t for the RP2350 solo & duo from version 260826 o
 
 ***
 
+- [****Clocks****](Clocks) ; Change the system clock base
 - [****Tools****](Tools) ; Show configuration, Assembler, decompiler, PIO (dis)assembler, etc.
 - [****Image****](Image) ; A Win32Forth tool to convert a Intel-Hex to a UF2 file
 - [****Hayes-tester****](Hayes-tester) ; The Hayes test for standard & noForth t specific words
