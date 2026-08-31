@@ -2264,8 +2264,8 @@ extra: : VCORE      ( +n --)
 
 \ Set core voltage from MAX-CLK and leave PLL divider data
 inside: : PLL>      ( -- post mul )
-    MAX-CLK cell+ h@+           \ Set power supply setting
-    4010000C h@ umax  vcore     \ Use always the largest voltage
+    MAX-CLK cell+ h@+ vcore     \ Set power supply setting
+\   4010000C h@ umax  vcore     \ Use always the largest voltage
     h@ b-b >r  0C lshift  r> ;  \ Read & leave PLL settings
 
 \ Change CPU klok, minimal valid frequency here is 10kHz, max.is the configured clock freq.
