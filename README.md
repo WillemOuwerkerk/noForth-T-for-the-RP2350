@@ -18,7 +18,10 @@ All code should run on noForth t for the RP2350 solo & duo from version 260826 o
 
 - [****Metacompiler for noForth tv# solo****](Meta-solo-multi) ; Metacompiler for noForth t solo multi, runs in win32forth.
 - [****noForth t UF2 files****](Meta-solo-multi) ; noForth tv# solo UF2 files, the most complete has USB, tools & source code library added 
+ - [****Image****](Image) ; A Win32Forth tool to convert a Intel-Hex to a UF2 file
+
 ***
+
 <!--
 - [****Configuration****](Configuration) ; Setting the system clock, baudrate & pin for S?
 - [****Dual core****](Dual-core) ; Fifo word set & words to start & stop code on the second core
@@ -29,7 +32,6 @@ All code should run on noForth t for the RP2350 solo & duo from version 260826 o
 - [****Hardware examples****](Hardware-examples) ; General code that will run on every RP2350 with noForth t
 - [****USB-CDC****](USB-CDC) ; USB driver that works on an RP2040 with the multitasker version of noForth t 
  - [****Hard-fault****](Hard-fault) ; Hard fault handler
- - [****Image****](Image) ; A Win32Forth tool to convert a Intel-Hex to a UF2 file
 - [****Hayes-tester****](Hayes-tester) ; The Hayes test for standard & noForth t specific words
 -->
 - [****Library****](Library) ; A Flash ROM source code library for noForth t, here is a [small tutorial](https://home.hccnet.nl/anij/nof/t/library%20noforth%20t%20dec2025.pdf)
