@@ -13,19 +13,23 @@ All code should run on noForth t for the RP2350 solo & duo from version 260826 o
 ***
 - [****Metacompiler for noForth tv# solo****](Meta-solo-multi) ; Metacompiler for noForth t solo multi, runs in win32forth.
 ***
-
+<!--
 - [****Configuration****](Configuration) ; Setting the system clock, baudrate & pin for S?
 - [****Dual core****](Dual-core) ; Fifo word set & words to start & stop code on the second core
+-->
 - [****Tools****](Tools) ; Show configuration, Assembler, decompiler, commacode, PIO (dis)assembler, [PIO code examples](Tools/PIO-examples), etc.
+<!--
 - [****Pico-kit examples****](Pico-kit-examples) ; Examples tailored to the Pico-kit experimenter board
 - [****Hardware examples****](Hardware-examples) ; General code that will run on every RP2350 with noForth t
 - [****USB-CDC****](USB-CDC) ; USB driver that works on an RP2040 with the multitasker version of noForth t 
  - [****Hard-fault****](Hard-fault) ; Hard fault handler
  - [****Image****](Image) ; A Win32Forth tool to convert a Intel-Hex to a UF2 file
 - [****Hayes-tester****](Hayes-tester) ; The Hayes test for standard & noForth t specific words
+-->
 - [****Library****](Library) ; A Flash ROM source code library for noForth t, here is a [small tutorial](https://home.hccnet.nl/anij/nof/t/library%20noforth%20t%20dec2025.pdf)
+<!--
  - [****Multi-tools****](Multi-tools) ; A multitasker tool set, [here is a tutorial](https://home.hccnet.nl/anij/nof/t/multitasker%20noforth%20t%20dec2025.pdf)
-
+-->
 <h3 align="center">RP2350 a pin compatible Chinese Pico board clone</h3>
 
 Usefull hardware [documentation](pico-rp2040-dev-board.pdf) about various RP2350 boards that can be used with noForth t. Thisis one of them.
