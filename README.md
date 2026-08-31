@@ -2,7 +2,7 @@
 noForth t for the RP2350 sources and example source files
 
 These sources are here to document noForth t and the hardware examples are there to learn how to use the the RP2350.
-All code should run on noForth t for the RP2350 solo & duo from version 260826 onwards. More info, click the link.
+All code should run on noForth t for the RP2350 solo & duo from version 260826 onwards. More info, click the link below.
 
 <p align="center">
 <a href="https://home.hccnet.nl/anij/nof/noforth.html" target="_blank">
@@ -26,8 +26,8 @@ All code should run on noForth t for the RP2350 solo & duo from version 260826 o
 - [****Library****](Library) ; A Flash ROM source code library for noForth t, here is a [small tutorial](https://home.hccnet.nl/anij/nof/t/library%20noforth%20t%20dec2025.pdf)
  - [****Multi-tools****](Multi-tools) ; A multitasker tool set, [here is a tutorial](https://home.hccnet.nl/anij/nof/t/multitasker%20noforth%20t%20dec2025.pdf)
 
-<h3 align="center">YP-RP2040 a pin compatible Chinese Pico board clone</h3>
+<h3 align="center">RP2350 a pin compatible Chinese Pico board clone</h3>
 
-Usefull hardware [documentation](pico-rp2040-dev-board.pdf) about various RP2040 boards that can be used with noForth t. The YP-RP2040 is one of them.
+Usefull hardware [documentation](pico-rp2040-dev-board.pdf) about various RP2350 boards that can be used with noForth t. Thisis one of them.
 
 ![Pico with headers for noForth DUO-R](https://github.com/WillemOuwerkerk/noForth-T-hardware-examples-RP2040-/assets/11397265/4e747dc8-8551-425e-b57e-7ade88b18e25)
