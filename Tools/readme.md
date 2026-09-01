@@ -1,4 +1,4 @@
-## Tool set fot noForth t
+## Tool set for noForth t
 
 - [****slow-down.f****](slow-down.f) ; Add startup file on 16MHz only for low power usage
 - [****print-worktime.f****](print-worktime.f) ; Show uptime after the last restart
