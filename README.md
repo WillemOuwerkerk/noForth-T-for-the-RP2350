@@ -1,7 +1,7 @@
 # noForth-T-for-the-RP2350
 noForth t for the RP2350 sources and example source files
 
-### Note that this is far from complete it will be extended in the coming weeks
+### Note that this is not yet complete it will be extended in the coming weeks
 There will be more UF2 files for more solo & duo versions of noForth t also more examples.
 <br>The UF2 solo version with library is already quite complete!
 
