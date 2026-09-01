@@ -45,7 +45,8 @@
 
 <h3>One PIO state machine</h3>
 
-![](../../Pics/SM0.jpg)
+<img width="1052" height="629" alt="afbeelding" src="https://github.com/user-attachments/assets/28923559-c52b-402b-8434-35543cf26846" />
+
 
 ***
 
