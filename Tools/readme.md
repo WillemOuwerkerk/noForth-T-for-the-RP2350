@@ -22,7 +22,7 @@
 
 ***
 
-<h3>Loading and using LOOK</h3>
+<h3>Inside look at the PIO structure</h3>
 
 <img width="803" height="702" alt="afbeelding" src="https://github.com/user-attachments/assets/f426b0d7-afdc-400c-a18e-9740a4a2d25b" />
 
