@@ -34,3 +34,9 @@ Note the meta compiler uses these files:
             Optional: RAMBORDER XXXX + BOOT1
 
     Check all usage of CFG and CFG> too
+
+<h1 align="center"> Waveshare RP2350-PiZero </h1>
+Uses only 3.5mA with the PLL and system clock on 48MHz and about 1.5mA on with the system clock on 16MHz.
+The USB-CDC is still functioning and all timing stays correct.
+<br><br>
+<img width="1326" height="1029" alt="afbeelding" src="https://github.com/user-attachments/assets/43e061bf-0982-40bd-8ca2-8110a3113e08" />
