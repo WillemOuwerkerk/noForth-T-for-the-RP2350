@@ -3084,7 +3084,7 @@ hex
 (* Separate minimal PIO control 08-march-2023 - 03-sept-2024
 
     SM-ON       = (De)activate state machine  ( f sm -- )
-    SET-PIO     = Select PIO 0 or 1           ( n -- )
+    =PIO        = Select PIO 0 to 2           ( n -- )
     TX-DEPTH    = Space on TX fifo of 'sm'    ( sm -- +n )
     RX-DEPTH    = Space on RX fifo            ( sm -- +n )
     >TXF        = Data to TX fifo             ( x sm -- )
@@ -5770,8 +5770,8 @@ hex
     0000 502000F0 !
 \ Activate PIO program on a valid frequency
     0 =pio                      \ Select used PIO
-    dm 3,333,333 0 set-freq     \ Set correct frequency
-    dm 3,333,333 1 set-freq
+    dm 3,333,333  0 set-freq    \ Set correct frequency
+    dm 3,333,333  1 set-freq
     1 0 sm-on  400 ms  1 1 sm-on ; \ Activate state machines
 %%
 
@@ -11824,10 +11824,10 @@ hex
     0006 4001403C !
     0015 50200120 !
 \ Start all used state machines on correct frequecies
-    0 set-pio 
-    dm 6,666,666   0 set-freq
-    dm 115,200 8 * 2 set-freq 
-    dm 115,200 8 * 3 set-freq
+    0 =pio 
+    dm 6,666,666    0 set-freq
+    dm 115,200 8 *  2 set-freq 
+    dm 115,200 8 *  3 set-freq
     0 0 sm-on  0 2 sm-on  0 3 sm-on ;
 
 dm 300 value #LEDS     \ Number of WS2812 LEDs connected
@@ -12249,7 +12249,7 @@ hex
     05013080 502000CC !
     00000000 502000D8 !
     0 =pio                  \ Slect used PIO
-    dm 160,000 0 set-freq   \ Set wanted frequency for SM0
+    dm 160,000  0 set-freq  \ Set wanted frequency for SM0
     1 0 sm-on ;             \ Start SM0
 pio-prog
 
