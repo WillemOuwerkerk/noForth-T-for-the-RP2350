@@ -10,7 +10,7 @@
           
 The noForth T UF2 file is ready with the current date in the
 filename, it includes sboot-nof2.bin & the generated binary
-example: noforth t 230429.uf2
+example: noforth t RP2350 230429.uf2
 
 
 Note the meta compiler uses these files:
