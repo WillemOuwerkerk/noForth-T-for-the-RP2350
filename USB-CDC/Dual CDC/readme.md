@@ -37,9 +37,9 @@ After noForth t is booted, take the following actions.
 ***
 
 
-**noForth t duo booted and using dual CDC**
+**noForth tv# RP2350 duo booted and using dual CDC**
 
-<img width="1658" height="513" alt="image" src="https://github.com/user-attachments/assets/5a6c8132-6859-4301-983d-baa8b554c5ca" />
+<img width="1668" height="533" alt="image" src="https://github.com/user-attachments/assets/e5e93d56-31b0-45d6-a0b6-95b1d5591115" />
 
 
 ***
