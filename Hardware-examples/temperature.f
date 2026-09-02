@@ -1,4 +1,4 @@
-(* Small example on how to use the Analog-Digital-Converter W.O. 2023
+(* Small example on how to use the Analog-Digital-Converter W.O. 2023-2026
 
 Celsius conversion routine built by Albert Nijhof
 More on ADC chapter 4.9 page 559 ff
