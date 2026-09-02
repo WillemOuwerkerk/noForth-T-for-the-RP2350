@@ -23,8 +23,8 @@ C   D000001C = Xor
 
 First the SPI-0 driver on GPIO16 to GPIO19
 
-    4003C000    - SPI0_BASE
-    40040000    - SPI1_BASE
+    40080000    - SPI0_BASE
+    40088000    - SPI1_BASE
     40014000    - IO_BANK0_BASE
 
     SPI is chapter 4.4 from page 503 ff
@@ -35,14 +35,14 @@ Current use by the display while active, 4 mA (black), to 60 mA (white)
 
 hex  v: inside also definitions
 : KHZ>          ( khz -- div1 div2 )
-    0 cfg @ dm 1,000 *  swap /                  \ Calculate divisor
+    0 cfg 2 + h@ dm 10 *  swap /                \ Calculate divisor
     dup FF < if  7E and  0000  exit  then       \ 254 or smaller
     dup 6000 < if  19 /  1800  exit  then       \ 6000 or smaller
     dup dm 64770 < if  FA /  F900  exit  then   \ 64770 or smaller
     ?abort ;    \ Unable to calculate divider settings!
 
 : 'SPI          ( 0|1 -- a )    \ Select SPI base address
-    1 = 4000 and  4003C000 + ;
+    1 = 8000 and  40080000 + ;
 
 : SPI-MASTER    ( khz 0|1 -- )
     'spi >r                 \ Select SPI hardware
@@ -75,7 +75,7 @@ BLACK value BC     \ Background color
 : >BC           ( c -- )    to bc ;
 : >LC           ( c -- )    to lc ;
 
-D0000020 constant GPIO-OE           \ GPIO output enable
+D0000030 constant GPIO-OE           \ GPIO output enable
 D0000010 constant GPIO-OUT          \ GPIO output value
 
 : INV           ( -- )          BC  LC  to BC  to LC ;
@@ -86,18 +86,18 @@ v: inside definitions
 : COMM          ( -- )          0B bitmask gpio-out **bic ; \ GPIO11 = DC
 
 : DATA          ( -- )
-    begin  10 4003C00C bit** 0= until \ OLED command sent?
+    begin  10 4008000C bit** 0= until \ OLED command sent?
     0B bitmask gpio-out **bis ; \ GPIO11 = DC
 
 : {SPI          ( -- )          0A bitmask gpio-out **bic ; \ GPIO10 = CS
 
 : SPI}          ( -- )
-    begin  10 4003C00C bit** 0= until \ OLED data all sent?
+    begin  10 4008000C bit** 0= until \ OLED data all sent?
     0A bitmask gpio-out **bis ; \ GPIO10 = CS
 
 : >OL           ( b -- )
-    begin  2 4003C00C bit** until  4003C008 !
-    begin  4 4003C00C bit** until  4003C008 @ drop ;
+    begin  2 4008000C bit** until  40080008 !
+    begin  4 4008000C bit** until  40080008 @ drop ;
 
 : 2>OL          ( b0 b1 -- )    >ol >ol ;
 
@@ -110,7 +110,7 @@ v: inside definitions
 create DATA
     gpio-out 4 + ,
     0B bitmask ,
-    4003C00C ,
+    4008000C ,
 code>
     w  { hop day sun } ldm,
     moon 10 # movs,
@@ -143,7 +143,7 @@ end-code
 create SPI}
     gpio-out 4 + ,
     0A bitmask ,
-    4003C00C ,
+    4008000C ,
 code>
     w  { hop day sun } ldm,
     moon 10 # movs,
@@ -173,7 +173,7 @@ routine OL>)    ( -- a )    \ DAY = SPI data register, W = OLED command or data
 end-code
 
 create >OL        ( b -- )
-    4003C008 ,
+    40080008 ,
 code>
     day  w ) ldr,
     w tos movs,
@@ -184,7 +184,7 @@ code>
 end-code
 
 create 2>OL        ( b0 b1 -- )
-    4003C008 ,
+    40080008 ,
 code>
     day  w ) ldr,
     w tos movs,
@@ -200,7 +200,7 @@ create >PIX   ( 0|n -- )
     adr lc ,    \ Letter color
     adr bc ,    \ Backgound color
     gpio-out ,  \ Control line ouput address
-    4003C008 ,  \ SPI-0 data register
+    40080008 ,  \ SPI-0 data register
 code>
     w  { hop day } ldm,     \ HOP = letter color, DAY = background color
     tos 0 # cmp,
@@ -1337,9 +1337,9 @@ v: extra definitions
 : THIN      ( -- )      ['] thin-emit to o-emit ;
 
 : BOOTKEY?  ( -- f )
-    2000 4001800C **bis  10 us  \ QSPI pin-SS is input (OEOVER bitfield)
-    2 D0000008 bit** 0=         \ Read boot key on QSPI pin-SS
-    3000 4001800C **bic ;       \ QSPI pin-SS peripheral function again
+     8000 4003001C **bis  10 us \ QSPI pin-SS disable output (OEOVER bitfield)
+    20000 40030018 bit** 0=     \ Read boot key in GPIO_QSPI_SS_STATUS bit 17
+     8000 4003001C **bic ;      \ QSPI pin-SS enable output 
 
 : THINDEMO  ( -- )              \ Display thin large token set
     thin  orange >bc  white >lc
