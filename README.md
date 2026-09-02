@@ -21,6 +21,7 @@ All code should run on noForth t for the RP2350 solo & duo from version 260826 o
 
 ***
 
+- [****Configuration****](Configuration) ; Setting the system clock, baudrate & pin for S? and bootup LED
 - [****Clocks****](Clocks) ; Change the system clock base
 - [****Tools****](Tools) ; Show configuration, Assembler, decompiler, PIO (dis)assembler, etc.
 - [****Image****](Image) ; A Win32Forth tool to convert a Intel-Hex to a UF2 file
@@ -30,16 +31,15 @@ All code should run on noForth t for the RP2350 solo & duo from version 260826 o
 - [****Library****](Library) ; A Flash ROM source code library for noForth t, here is a [small tutorial](https://home.hccnet.nl/anij/nof/t/library%20noforth%20t%20dec2025.pdf)
 - [****Dual core****](Dual-core) ; Fifo word set & words to start & stop code on the second core
 - [****Multi-tools****](Multi-tools) ; A multitasker tool set, [here is a tutorial](https://home.hccnet.nl/anij/nof/t/multitasker%20noforth%20t%20dec2025.pdf)
+- [****Hardware examples****](Hardware-examples) ; General code that will run on every RP2350 with noForth t
 
 <!--
-- [****Configuration****](Configuration) ; Setting the system clock, baudrate & pin for S?
 - [****Pico-kit examples****](Pico-kit-examples) ; Examples tailored to the Pico-kit experimenter board
-- [****Hardware examples****](Hardware-examples) ; General code that will run on every RP2350 with noForth t
 -->
 
 <h3 align="center">An RP2350 Pico2 board</h3>
 
-Usefull hardware [documentation](pico-rp2040-dev-board.pdf) about various RP2350 boards that can be used with noForth t. Thisis one of them.
+Usefull hardware [documentation](pico-rp2040-dev-board.pdf) about various RP2350 boards that can be used with noForth t. This is one of them.
 
 <p align="center">
 <img width="1972" height="866" alt="afbeelding" src="https://github.com/user-attachments/assets/b6dd6a68-5b41-4c8d-a681-f45c8a9e2002" />
