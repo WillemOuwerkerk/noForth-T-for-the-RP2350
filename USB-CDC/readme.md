@@ -13,7 +13,7 @@ The [USB documentation can be found here](https://home.hccnet.nl/willem.ouwerker
 
 **What do we have to do**
 
-    1. Initialising the USB hardware on the RP2040.
+    1. Initialising the USB hardware on the RP2350.
     2. Receiving and responding to setup packets from the host (PC). 
        This determines which driver the OS will load.
     3. If the host is satisfied with the setup, then sending and 

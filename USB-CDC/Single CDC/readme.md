@@ -21,3 +21,4 @@ After noForth t is booted, take the following actions.
     3) Type: USB-ON <enter> and ready
     4) To make it permanent type: FREEZE <enter>
        Restart noForth t with USB by typing: COLD
+
