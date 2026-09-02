@@ -68,10 +68,12 @@ only forth also definitions
 marker -META
 hex \ until the end
 
+
 \ Primitive string set from P.F.W.
 : C+!   ( n a -- )  >r  r@ c@ +  r> c! ;        \ Incr. byte with n at a
 : $+!   ( c s -- )  >r  tuck  r@ count +  swap move  r> c+! ; \ Extend string 's' with 'c'
 : $!    ( c s -- )  0 over c!  $+! ;            \ Store 'c' string into 's'
+
 
 \ --- intro for win32forth ---
 : 16!   w! ;
@@ -137,6 +139,7 @@ hex create box 48 allot
 IGNORE <---- ---->
 
 <---- skips text until ---->
+
 
 0 value vocs?
 
@@ -212,7 +215,9 @@ constant BINARY-BUFFER
 : >HOSTA?   ( ta1 -- ha2 err? )     dup 20000000 -  image +  swap targano?  ;
 : >TARGA?   ( ha1 -- ta2 err? )     image -  20000000 +  dup targano? ;
 
+
     include RP2040-DAS.f
+
 
 only forth also definitions  \ -voc-
 
@@ -223,6 +228,7 @@ only forth also definitions  \ -voc-
 : (PFX-LINK)    hot dict-THReads `cells + ;   \ for TO etc.
 : (WID-LINK)    hot dict-THReads 1+ `cells + ;  \ for WORD-list
 \ - - -
+
 
 \ <---- Intro ---->
 
@@ -257,6 +263,7 @@ while handling the next word in the input stream
     if postpone literal
     then ; immediate
 ---->
+
 
 <---- select processor board ---->
 
@@ -307,6 +314,7 @@ create UF2-FILE 0 c, 30 allot align
 : vocskey
     cr ." Version with vocabularies?    + = yes   - = no   -> "
     key dup [char] + = to vocs?   emit cr  !nof-name ;
+
 
 <---- tracing ---->
 
@@ -404,6 +412,7 @@ create UF2-FILE 0 c, 30 allot align
     01B over =   ?abort
     bl <> ;
 
+
 <---- `words
   are words that do not behave the same way in noforth as in the host-forth.
   these words operate on virtual targ addresses!
@@ -421,8 +430,8 @@ create UF2-FILE 0 c, 30 allot align
 
 
 \ header
-: (>BODY)   4 + ;
-: (LFA>N)   5 + ;
+: (>BODY)                           4 + ;
+: (LFA>N)                           5 + ;
 : `LNK@     ( lfa.t -- lfa2.t )     w@ ;
 :  `LFA>    ( lfa.t -- cfa.t )
     >hosta? ?abort
@@ -458,6 +467,7 @@ meta:
 \ 77 constant SYS-BEGIN, \ for until, again, repeat,
 \ 88 constant SYS-COND   \ Conditionals
 \ -----------------------------  meta II -------------------------
+
 
 <---- META II - an - 19mei04 ---->
 
@@ -528,6 +538,7 @@ create WORDA    22 allot align      \ the result of BL WORD is stored there
 \ ) chere 2 and if FFFF h, then             \ kkk *WO*
     ;            \ icount & name
 
+
 \ ----- i n t e r p r e t -----
 : `COMPILE, ( a.t - )   w, ;
 
@@ -544,6 +555,7 @@ create WORDA    22 allot align      \ the result of BL WORD is stored there
 : DOER,  ( doeradr -- )     w, ;
 : DOER!  ( doeradr a -- )   w! ;
 : `CREATE `header token: CREATE (>body) doer, ; \ ^^^
+
 
 <----  Late binding (avoiding forward refences)
 NAME: ccc compiles ccc as a string in the meta-compiler.
@@ -610,6 +622,7 @@ state?                 \ qqq
     ready? 1- to ready?
     ready?   if  ."  R e a d y "  then ;
 
+
 <---- metacompiler start / stop ---->
 : `UALLOT ( n -- )    .UHERE  uhere + to uhere ;
 \ : ?? ( a n -- ) cr 2dup evaluate 8 .r space type ;
@@ -652,6 +665,7 @@ forth
 : MYNAME,   myname count dup b, `m,   `align ;
 : MYNAME2,  s" M33 core with ARMv8-M ISA" dup b, `m, `align ;
 
+
 \ METACOMPILING will stop when READY? has become True (in ;;;NOFORTH;;;)
 
 : ;;;NOFORTH;;; ( -- )      \ finish meta compiling
@@ -669,6 +683,7 @@ cr ." hehe    "
 ---->
 
 CR  .(   END of META II )
+
 
 \ -----------------------------  meta III -------------------------
 \ Meta III - an - 19mei04
@@ -698,7 +713,6 @@ forth definitions also meta
 
 \  Normal version
 : `END-CODE     sys-code ?pair  drop  `align ;
-\ : DATA>         align,  w pc mov,  ahead, ;
 : `CODE>        dup sys-code ?pair  `align  chere  created `lfa>  w! ;
 : NONAME     ( -- sys-code ) chere (>body) doer,  chere sys-code ;
 : `CODE      ( <name> -- sys-code )  `header NONAME ;
@@ -722,6 +736,7 @@ forth definitions also meta
     toffset w,  uhere w!  4 `tallot ;
 : `CONSTANT  ( n <name> -- ) `header token: CONSTANT (>body) doer, w, ;
 \ : `PREFIX    ( pfx# <name> -- )  `header token: `PREFIX (>body) doer, w, `immediate ;
+
 
 : `'        ( <name> -- cfa-targ )
     bl-word dup .name `find 0= ?abort ;
@@ -851,6 +866,7 @@ forth definitions also meta
     if  3 b, 0 b, 0 b, 0 b,         \ only's order
     then ;
 
+
 \ -----  immediate compiler words -----
 : `IF       ( -- IFa sys-if ) token: IF (>body) `compile,
     chere -1 w,  sys-if ;
@@ -873,6 +889,7 @@ forth definitions also meta
 
 \ Formal end of colon definition, without compiling EXIT
 : (;)   ( sys-colon -- )    drop sys-colon ?pair  ( reveal )  `[ ;
+
 
 \ ----- DO LOOP - nov2019
 \ DO..LOOP
@@ -916,7 +933,7 @@ vocs? if
     UHERE w, ;                  \ !!!
 \ - - -
 
-\ ============= herdefinities in META ==================
+\ ============= redefinitions in META ==================
 
 : DOMETA: does> @ execute ;
 
@@ -952,6 +969,8 @@ vocs? if
  Only words that already extist in the target can be found and compiled.
 ---->
 
+
+\ Some primitive tools for listing threads, decompiling & disassembling
 : TDUMP ( adres len -- )
     >r >hosta? ?abort r> cr dump ;
 
@@ -1015,9 +1034,10 @@ vocs? if
         (MSEE)  >targa? ?abort          \                                   ta
     key bl <> until  drop ;
 
-
 ONLY FORTH ALSO
 META DEFINITIONS FORTH  \ -voc-
+
+
 \ meta-name     forth-name   (Redefine all these Forth words in META)
 
 META-WORDS:
@@ -1180,6 +1200,7 @@ META-WORDS:
 
 \ ;;;NOFORTH;;; MUST be the last item in the list.
 
+
 trace
 only forth also definitions
 <----
@@ -1202,8 +1223,10 @@ cr cr  .(                    de metacompiler is geladen )
 cr cr
 ---->
 
+
+\ Writing Intel-Hex, binaries and UF2-files from the result
+
 hex
-\ 0 value ROMHERE
 0 value CHK
 20 value B/LINE
 0 value FILEID
@@ -1256,7 +1279,7 @@ create NEWLINE  hex 0D c, 0A c, align
     fileid close-file throw
     cr bin-file count type ."  done " ;
 
-\  Build UF2 binary file for RP2040 bootloader
+\  Build UF2 binary file for RP2040/RP2350 bootloader
 \
 \   Based on the code from Willem Jager but simplyfied, W.O. 24jan2023
 
