@@ -1,6 +1,6 @@
 ## Tool set for noForth t
 
-- [****slow-down.f****](slow-down.f) ; Add startup file on 16MHz only for low power usage
+- [****slow-down.f****](slow-down.f) ; Add startup file to switch to 16MHz, to low power consumption and still keep the USB functioning
 - [****print-worktime.f****](print-worktime.f) ; Show uptime after the last restart
 - [****print-cfg-rp2350.f****](print-cfg-rp2350.f) ; Print current configuration in detail
 - [****PIO-assembler-RP2350.f****](PIO-assembler-RP2350.f) ; RP2350 PIO assembler
