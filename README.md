@@ -17,7 +17,7 @@ All code should run on noForth t for the RP2350 solo & duo from version 260826 o
 ***
 
 - [****Metacompiler for noForth tv# solo****](Meta-solo-multi) ; Metacompiler for noForth t solo multi, runs in win32forth.
-- [****noForth t UF2 files****](Meta-solo-multi) ; noForth tv# solo UF2 files, the most complete has USB, tools & source code library added 
+- [****noForth t UF2 files****](noForth%20t%20UF2) ; noForth tv# solo UF2 files, the most complete has USB, tools & source code library added 
 
 ***
 
