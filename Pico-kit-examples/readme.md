@@ -1,0 +1,53 @@
+## Pico-kit examples
+
+The [Pico kit is an experimenter board](Pico-kit-v2%20manual.pdf) for the RP2350 Pico boards and clones. It features a number of well-known interfaces. For example, I2C, SPI, switches, LEDs, MOSFET output, Bluetooth, ESP-12F, OLED, etc. It also has two RS232 connections to allow noForth t duo comfortable use.
+You can order the board if you like to try it, it comes with the required SMD-components (WS2812B, Mosfet & Schottkey diode) at w.ouwerkerk@kader.hcc.nl
+i handle the orders for our local Dutch Forth users group.
+
+***
+
+### Pico-kit PCB
+![Pico-kit board tiny](https://github.com/WillemOuwerkerk/noForth-T-hardware-examples-RP2040-/assets/11397265/0e98b048-a09f-4151-aea0-196c64987ae5)
+
+***
+
+<!--
+- [****RP2350-code-i2c.f****](RP2040-code-i2c.f) ; I2C asm master implementation
+-->
+
+- [****RP2350-hw-i2c.f****](RP2040-hw-i2c.f) ; I2C high-level master implementation
+- [****RP2350-bb-i2c.f****](RP2040-bb-i2c.f) ; I2C bit-bang master implementation
+
+![](../Pics/i2c-read-slave_2.png)
+I2C read from PCF8574 and I/O-slave
+
+- [****I2C board examples****](I2C-board-examples.f) ; I2C bus scanner & usage examples with an EEPROM and RP2040 slaves
+
+***
+
+- [****islave-io.f****](islave-io.f) ; I2C I/O-slave on core-1
+- [****islave-mem.f****](islave-mem.f) ; I2C RAM-memory-slave on core-1
+
+![](../Pics/I2C-slave-wiring.jpg)
+I2C slave wiring on Pico-kit
+
+***
+
+- [****BAMBOO-hilevel.f****](BAMBOO-hilevel.f) ; Example of converting serial to parallel outputs using the 74HC4094
+<!--
+- [****blink-0-P.f****](blink-0-P.f) ; - Simple blinker using the BOOT-key for escape
+- [****interrupt-1P.f****](interrupt-1P.f) ; Hardware interrupt using S2
+- [****pwm-1P.f****](pwm-1P.f) ; PWM driver on GPIO26 with MOSFET output
+-->
+- [****I2C-OLED****](I2C-OLED/) ; PFW I2C OLED driver with multiple letter sets
+- [****SPI-OLED****](SPI-OLED/) ; PFW OLED driver with SPI-interface & multiple letter sets
+<!--
+- [****nRF24L01P****](nRF24/) ; Basic nRF24L01P driver with carrier wave scanner
+- [****Pico-board-configuration****](Pico-board-config/) ; Pico-kit specific configuration file
+-->
+- [****PIO-examples****](PIO-examples/) ; Pico-kit specific (WS2812B) LED drivers
+- [****blink-1.f****](blink-1.f) ; Simple blinker using S2 for escape
+
+  ***
+  ### Pico-kit constructed with nRF24L01P & logical analyzer connected ###
+![Pico-kit-met-nRF24](https://github.com/WillemOuwerkerk/noForth-T-hardware-examples-RP2040-/assets/11397265/b3e0bd95-723f-432e-b4ec-f172747ddd9c)
