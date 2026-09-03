@@ -39,7 +39,7 @@ All code should run on noForth t for the RP2350 solo & duo from version 260826 o
 
 <h3 align="center">An RP2350 Pico2 board</h3>
 
-Usefull hardware [documentation](pico-rp2350-dev-board.pdf) about various RP2350 boards that can be used with noForth t. This is one of them.
+Usefull hardware [documentation](pico-RP2350-dev-board.pdf) about various RP2350 boards that can be used with noForth t. This is one of them.
 
 <p align="center">
 <img width="1972" height="866" alt="afbeelding" src="https://github.com/user-attachments/assets/b6dd6a68-5b41-4c8d-a681-f45c8a9e2002" />
