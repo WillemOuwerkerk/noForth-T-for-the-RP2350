@@ -1,12 +1,10 @@
 # noForth-T-for-the-RP2350
-noForth t for the RP2350 sources and example source files
-
-### Note that this is not yet complete it will be extended in the coming weeks
+noForth t for the RP2350 sources and examples.
 There will be more UF2 files for more solo & duo versions of noForth t also more examples.
 <br>The UF2 solo version with library is already quite complete!
 
-<br>These sources are here to document noForth t and the hardware examples are there to learn how to use the the RP2350.
-All code should run on noForth t for the RP2350 solo & duo from version 260826 onwards. More info, click the link below.
+<br>These sources are here to document noForth t, and the hardware examples are there to learn how to use the the RP2350.
+All code should run on noForth t for the RP2350 solo & duo from version 260826 onwards. More infoon noForth, click the link below.
 
 <br><p align="center">
 <a href="https://home.hccnet.nl/anij/nof/noforth.html" target="_blank">

@@ -7,6 +7,7 @@
 - ****rp2350-noforth-tv#-solo-usb+lib-260826.uf2****; The single noForth with vocabularies, multitasker, usb-cdc, 350+ kByte flash source code library & tools included.
 See the [library content docomentaion](https://github.com/WillemOuwerkerk/noForth-T-for-the-RP2350/blob/main/noForth%20t%20UF2/library%20V2%20for%20RP2350%20a%20short%20overview.pdf) too.
 
-
-  <img width="1570" height="1134" alt="image" src="https://github.com/user-attachments/assets/a732f433-1f4a-47f1-b35f-2293211ae1b7" />
-
+<p>
+  <img class="center" width="210" height="266" alt="Waveshare RP2350 boards" src="../Pics/Waveshare-RP2350-boards.jpg" />
+  <br><b>RP2350 boards</b>
+</p> 
