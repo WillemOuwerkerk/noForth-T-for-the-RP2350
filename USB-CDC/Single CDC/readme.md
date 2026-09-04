@@ -25,5 +25,5 @@ After noForth t is booted, take the following actions.
 <br>
 <p align="center">
   <img width="750" height="600" alt="Waveshare RP2350 boards" src="../../Pics/RP2350-zero+power.jpg" />
-  <br><b>Waveshare RP2350-Zero board</b>
+  <br><b>Waveshare RP2350-Zero board on 48MHz</b>
 </p> 
