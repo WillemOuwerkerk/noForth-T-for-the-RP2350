@@ -22,3 +22,8 @@ After noForth t is booted, take the following actions.
     4) To make it permanent type: FREEZE <enter>
        Restart noForth t with USB by typing: COLD
 
+<br>
+<p align="center">
+  <img width="750" height="600" alt="Waveshare RP2350 boards" src="../../Pics/RP2350-zero+power.jpg" />
+  <br><b>Waveshare RP2350-Zero board</b>
+</p> 
