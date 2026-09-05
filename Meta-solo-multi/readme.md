@@ -18,7 +18,7 @@ Note the meta compiler uses these files:
 - RP2040-DAS
 - T-meta-2026-...
 - T-targ-2350...
-- boot-nof2.bin
+- boot-nof4b.bin
 
 **Take care:**
 

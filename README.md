@@ -20,7 +20,7 @@ All code should run on noForth t for the RP2350 solo & duo from version 260826 o
 ***
 
 - [****Configuration****](Configuration) ; Setting the system clock, baudrate & pin for S? and bootup LED
-- [****Clocks****](Clocks) ; Change the system clock base
+- [****Clocks****](Clocks) ; Change the PLL system clock base
 - [****Tools****](Tools) ; Show configuration, Assembler, decompiler, PIO (dis)assembler, etc.
 - [****Image****](Image) ; A Win32Forth tool to convert a Intel-Hex to a UF2 file
 - [****Hayes-tester****](Hayes-tester) ; The Hayes test for standard & noForth t specific words
@@ -35,7 +35,7 @@ All code should run on noForth t for the RP2350 solo & duo from version 260826 o
 - [****Pico-kit examples****](Pico-kit-examples) ; Examples tailored to the Pico-kit experimenter board
 -->
 
-<h3 align="center">An RP2350 Pico2 board</h3>
+<h3 align="center">A RP2350 Pico2 board on the Pico-kit</h3>
 
 Usefull hardware [documentation](Pics/pico-RP2350-dev-board.pdf) about various RP2350 boards that can be used with noForth t. This is one of them.
 

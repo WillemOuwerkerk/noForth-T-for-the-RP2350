@@ -10,5 +10,5 @@ See the [library content documentation](../Pics/library%20V2%20for%20RP2350%20a%
 <br>
 <p align="center">
   <img width="315" height="399" alt="Waveshare RP2350 boards" src="../Pics/Waveshare-RP2350-boards.jpg" />
-  <br><b>Waveshare RP2350 boards</b>
+  <br><b>Three Waveshare RP2350 boards</b>
 </p> 
