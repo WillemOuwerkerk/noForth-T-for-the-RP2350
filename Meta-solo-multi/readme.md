@@ -9,13 +9,13 @@
     - Type **.** key
           
 The noForth T UF2 file is ready with the current date in the
-filename, it includes sboot-nof2.bin & the generated binary
+filename, it includes sboot-nof4b.bin & the generated binary
 example: noforth t RP2350 230429.uf2
 
 
 Note the meta compiler uses these files:
-- noForth-T-asm-M33
-- RP2040-DAS
+- noForth-T-asm-M33.f
+- RP2040-DAS.f
 - T-meta-2026-...
 - T-targ-2350...
 - boot-nof4b.bin
