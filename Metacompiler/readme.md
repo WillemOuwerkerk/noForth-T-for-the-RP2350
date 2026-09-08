@@ -1,24 +1,9 @@
-<h1 align="center"> Using the noForth t metacompiler</h1>
+<h1 align="center"> noForth t metacompiler overview</h1>
 
-**Single core meta:**
-- Start Win32Forth
-- Select the folder: meta solo xxx
-- include T-meta xxx.f
-- include T-targ xxx.f
-    - Type **+** key (or - key for a version without vocabularies)
-    - Type **.** key
-          
-The noForth T UF2 file is ready with the current date in the
-filename, it includes sboot-nof4b.bin & the generated binary
-example: noforth t RP2350 230429.uf2
-
-
-Note the meta compiler uses these files:
-- noForth-T-asm-M33.f
-- RP2040-DAS.f
-- T-meta-2026-...
-- T-targ-2350...
-- boot-nof4b.bin
+- [noForth t solo](Meta-solo) ; noForth for a single core without multitasker
+- [noForth t duo](Meta-duo) ; noForth for a dual core without multitasker
+- [noForth t solo multi](Meta-solo-multi) ; noForth for a single core with multitasker
+- [noForth t duo multi](Meta-duo-multi) ; noForth for a dual core with multitasker
 
 **Take care:**
 
@@ -35,8 +20,10 @@ Note the meta compiler uses these files:
 
     Check all usage of CFG and CFG> too
 
-<h1 align="center"> Waveshare RP2350-PiZero </h1>
+<br>
+<h2 align="center"> Waveshare RP2350-PiZero </h2>
 Uses only 3.5mA with the PLL and system clock on 48MHz and about 1.5mA on with the system clock on 16MHz.
 The USB-CDC is still functioning and all timing stays correct.
+
 <br><br>
 <img width="1326" height="1029" alt="afbeelding" src="https://github.com/user-attachments/assets/43e061bf-0982-40bd-8ca2-8110a3113e08" />
