@@ -1,4 +1,4 @@
-\ HARDFAULT, W.O.  15-10-2025
+\ Exceptions, W.O.  15-10-2025/2026
 \ Patch hard fault handler, 260 bytes
 \ To extend the functionality of the one built-in noForth t
 \ r0  r1  r2  r3  r12  lr  pc  xPSR
