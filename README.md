@@ -4,7 +4,7 @@ There will be more UF2 files for more solo & duo versions of noForth t also more
 The UF2 solo version with library is already quite complete!
 
 <br>These sources are here to document noForth t, and the hardware examples are there to learn how to use the the RP2350.
-All code should run on noForth t for the RP2350 solo & duo from version 260826 onwards. More infoon noForth, click the link below.
+All code should run on noForth t for the RP2350 solo & duo from version 260826 onwards. More info on noForth, click the link below.
 
 <br><p align="center">
 <a href="https://home.hccnet.nl/anij/nof/noforth.html" target="_blank">
@@ -14,7 +14,7 @@ All code should run on noForth t for the RP2350 solo & duo from version 260826 o
 
 ***
 
-- [****Metacompilers for noForth****](Metacompiler) ; Metacompiler for noForth t solo multi, runs in win32forth.
+- [****Metacompilers for noForth****](Metacompiler) ; Metacompiler for noForth t solo multi, written for win32forth.
 - [****noForth t UF2 files****](noForth%20t%20UF2) ; noForth t solo & duo UF2 files, the most complete versions have USB, tools & source code library added 
 
 ***
@@ -22,7 +22,7 @@ All code should run on noForth t for the RP2350 solo & duo from version 260826 o
 - [****Configuration****](Configuration) ; Setting the system clock, baudrate & pin for S? and bootup LED
 - [****Clocks****](Clocks) ; Change the PLL system clock base
 - [****Tools****](Tools) ; Show configuration, Assembler, decompiler, PIO (dis)assembler, etc.
-- [****Image****](Image) ; A Win32Forth tool to convert a Intel-Hex to a UF2 file
+- [****Image****](Image) ; A Win32Forth tool to convert a ROM image to an Intel-Hex stream and finally to a UF2 file
 - [****Hayes-tester****](Hayes-tester) ; The Hayes test for standard & noForth t specific words
 - [****USB-CDC****](USB-CDC) ; USB driver that works on an RP2350 with the multitasker version of noForth t 
 - [****Exceptions****](Exceptions) ; Exception/Hard fault handler
