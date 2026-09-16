@@ -22,7 +22,7 @@ All code should run on noForth t for the RP2350 solo & duo from version 260826 o
 - [****Configuration****](Configuration) ; Setting the system clock, baudrate & pin for S? and bootup LED
 - [****Clocks****](Clocks) ; Change the PLL system clock base
 - [****Tools****](Tools) ; Show configuration, Assembler, decompiler, PIO (dis)assembler, etc.
-- [****Image****](Image) ; A Win32Forth tool to convert a ROM image to an Intel-Hex stream and finally to a UF2 file
+- [****Image****](Image) ; A set of tools for noForth and Win32Forth that allows you to export a ROM image to an Intel-Hex stream and, in a second step, to a UF2 file
 - [****Hayes-tester****](Hayes-tester) ; The Hayes test for standard & noForth t specific words
 - [****USB-CDC****](USB-CDC) ; USB driver that works on an RP2350 with the multitasker version of noForth t 
 - [****Exceptions****](Exceptions) ; Exception/Hard fault handler

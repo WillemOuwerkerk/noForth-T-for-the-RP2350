@@ -222,6 +222,7 @@ T{ string $@ 2 -head 3 -tail $. -> }T
 
 
 \ BITARRAY LOC *SET *CLR GET* ZERO COPY COUNT* UP?
+\ This version is for a cell addressed bitarray!
 need bitarray  need *copy
 
 10 bitarray B1   10 bitarray B2
@@ -238,9 +239,23 @@ need *up?
 T{ B1 *up?  B1 *up?  B1 *up? -> 0 true 3 true 0 }T
 T{ B2 *up?  B2 *up?  B2 *up? -> 0 true 3 true 0 }T
 T{ 0 B1 *set  9 B1 *set -> }T
-T{ 0 B1 get* 1 B1 get* 9 B1 get* -> 1 0 2 }T
+T{ 0 B1 get* 1 B1 get* 9 B1 get* -> 1 0 200 }T
 T{ 0 B1 *clr -> }T
-T{ 0 B1 get* 1 B1 get* 9 B1 get* -> 0 0 2 }T
+T{ 0 B1 get* 1 B1 get* 9 B1 get* -> 0 0 200 }T
+
+
+\ Miscellaneous instructions: REV BITMASK U2/
+T{ 12345678 rev -> 78563412 }T
+T{ 11223344 rev -> 44332211 }T
+
+{T 0 bitmask -> 1 }T
+T{ 3 bitmask -> 8 }T
+T{ 10 bitmask -> 10000 }T
+T{ 20 bitmask -> 0 }T
+
+T{ -1 u2/ -> 7FFF,FFFF }T
+T{ 10000 u2/ -> 8000 }T
+T{ 1 u2/ -> 0 }T
 
 .errors
 
