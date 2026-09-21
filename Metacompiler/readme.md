@@ -4,6 +4,8 @@
 - [noForth t duo](Meta-duo) ; noForth for a dual core without multitasker
 - [noForth t solo multi](Meta-solo-multi) ; noForth for a single core with multitasker
 - [noForth t duo multi](Meta-duo-multi) ; noForth for a dual core with multitasker
+- [Smallest blinker](Flasher) ; Smallest possible secure blinker (only 64 bytes)
+- [Secundairy bootloader](Secundairy-boot) ; Generation of our secundairy boot image
 
 **Take care:**
 
