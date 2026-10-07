@@ -15,17 +15,28 @@ cr .( GNU General Public License for more details.                    )
 
 chapter VERSION
 cr .(      NEED version 0.53r      )
-cr .(  Library version 0.53 RP2350 )
+cr .(  Library version 0.54 RP2350 )
 cr .(                              )
 cr .( The size is about 376 kBytes )
 %%
 
 chapter UART
 \ Install UART interface
+
+need [if]
+need [defined]
+
+[defined] pause [if]
+: UART  ( -- )
+    ['] tkey    to 'key
+    ['] tkey?   to 'key?
+    ['] temit   to 'emit ;
+[else]
 : UART  ( -- )
     ['] key)    to 'key
     ['] key?)   to 'key?
     ['] emit)   to 'emit ;
+[then]
 %%
 
 chapter USB
