@@ -176,13 +176,14 @@ create BUFFER  180 allot        \ Sector buffer with overflow (noForth t)
 v: forth definitions
 : CHAPTER       ( text -- ) \ Contruct new library section
     lib? 0= ?abort  s" \ " lm,      \ New lib. header but only when a lib is open!
+                                    \ Otherwise abort access
     begin      (-bl)  bl parse      \ Find keywords
     ?dup while 2dup upper lm,  bl lc, \ Store uppercase in buffer
     repeat  drop  0D lc,            \ Add formfeed when done
     add-lib  09 lc, ;
 
 : OPEN-LIB      ( -- )      \ Open a library for writing, read incomplete lib. sector too!
-    lib? ?abort  true to lib?       \ Lib opened, ready otherwise open it
+    lib? ?abort  true to lib?       \ Lib opened? Yes abort, No open it
     libhere lib-org <> if           \ Lib. not empty?
         buffer SEC FF fill          \ Erase buffer first
         libhere SEC /mod  SEC *     \ Get previous sector & ptr length
@@ -191,15 +192,15 @@ v: forth definitions
     then  0 to ptr  {w  09 lc, ;    \ First lib. entry, open flash
 
 : CLOSE-LIB     ( -- )      \ Close library, save unfinshed buffer too
-    lib? 0= ?abort  false to lib?
+    lib? 0= ?abort  false to lib?   \ Abort when LIB is already closed
     buffer-full  ptr libwrite  W} ; \ Write last sector if any & close flash
 
 : WIPE-LIB      ( -- )      \ Remove previous stored library from flash
-    lib? ?abort  adjust             \ Close library first when it is already open
+    lib? ?abort  adjust             \ Lib opened? Yes abort, No, set length for sure!
     lib-org xip -                   \ Convert to start sector address
     7F000                           \ Fixed number for erase ( 520 kByte )
     {W  wipe-flash  W}              \ Erase whole library space
-    lib-org to libhere  open-lib ;  \ And reset library pointer
+    lib-org to libhere  open-lib ;  \ And reset library pointer, open for new lib. too
 v: fresh
 %%
 
