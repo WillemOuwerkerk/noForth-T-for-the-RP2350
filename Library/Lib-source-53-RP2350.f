@@ -1467,29 +1467,7 @@ chapter .CFG
 \ Print the current noForth-T configuration
 \ Try to convert an address to name field address, version-2
 hex  v: fresh inside also  definitions
-noname      ( a1 -- a2 )    \ <SKIP-FF
-    3B012503 ,  2EFF781E ,  3D01D102 ,
-    3B01D1F9 ,  CA10C804 ,  FFFF46A7 ,
-end-code  >r
-
-: >NFA      ( a -- nfa | 0 )    \ >NFA returns 0 when no header is found!
-    dup 3 and 0= if                     \ 32aligned?
-        dup origin chere within         \ In noForth code area?
-        if  [ r> compile, ]  false      \ Skip-FF count
-            begin
-                over c@ ch ! 7F within  \ Char. range = 21 7F
-            while
-                true /string
-            dup BL = until              \ String too long?
-            then  ( a +n )
-            ?dup if
-                over c@  7F and  = if   \ count ok?
-                    dup 1 and if        \ nfa odd -> ok
-                    dup 1- cell- @
-                    over < and exit     \ Link pointing backwards?
-                then
-        then then then
-    then  drop false ;
+need >NFA
 
 : .CLK      ( -- )          \ Show current clock frequency
     max-clk @                   \ Used PLL clock in MHz

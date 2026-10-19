@@ -16,9 +16,9 @@ Note the meta compiler uses these files:
 - noForth-T-asm-M33.f
 - RP2040-DAS.f
 - T-meta-2026-jul28.f
-- boot-nof4b.f
+- sboot-nof4b.f
 
-The file <b>boot-nof4b.f</b> is the secundairy boot routine. It is used to generate <b>boot-nof4b.bin</b>.
+The file <b>sboot-nof4b.f</b> is the secundairy boot routine. It is used to generate <b>boot-nof4b.bin</b>.
 
 
 **Take care:**
