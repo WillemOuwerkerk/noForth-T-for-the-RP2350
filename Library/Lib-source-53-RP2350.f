@@ -140,6 +140,7 @@ After a library is extended FREEZE noForth to make
 the library extension (LIBHERE) permanent!
 *)
 
+hex
 v: inside also  definitions
   1000,0000 constant XIP        \ Start of XIP memory
   0000,0100 constant SEC        \ Sector size
@@ -801,7 +802,7 @@ v: fresh
 
 chapter PAD
 hex  v: forth definitions   \ Scratchpad memory
-create PAD  ( -- a )    20 allot        \ example
+create PAD  ( -- a )    80 allot        \ example
 %%
 
 chapter SOURCE
