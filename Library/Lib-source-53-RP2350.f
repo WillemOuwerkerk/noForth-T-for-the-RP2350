@@ -15,7 +15,7 @@ cr .( GNU General Public License for more details.                    )
 
 chapter VERSION
 cr .(      NEED version 0.53r      )
-cr .(  Library version 0.54 RP2350 )
+cr .(  Library version 0.55 RP2350 )
 cr .(                              )
 cr .( The size is about 376 kBytes )
 %%
@@ -4786,31 +4786,36 @@ shield CORE1\
 %%
 
 chapter CORE0
-\ Demo-1a: a counter over two cores
-: CORE0         ( -- )      \ Count on core-0 using two cores
+\ Demo-1a: a counter between two cores
+: CORE0         ( -- )                  \ Count on core-0 using two cores
     empty-fifo  1 fifo!
     begin
-        fifo@ 1+ cr dup . fifo!  50 ms
+        rxf? if                         \ Data received?
+            cr  fifo@ dup .  1+  fifo!  \ Yes, print, increase and sent back
+        then  50 ms
     key? until
     0 fifo!  empty-fifo ;
 %%
 
 chapter CORE1
-\ Demo-1b: a counter over two cores
-: CORE1         ( -- )      \ Display counter from core-0
+\ Demo-1b: a counter between two cores
+: CORE1         ( -- )          \ Display counter from core-0
     begin
-    fifo@ ?dup while
-        cr dup .  fifo!
-    repeat  empty-fifo ;
+        begin  10 us  rxf? until    \ Wait for data received
+    fifo@ ?dup while                \ Read it, not zero?
+        cr dup .  fifo!             \ Print it & sent back
+    repeat  empty-fifo ;            \ Stop & clear on zero
 %%
 
 chapter BUTTON
 \ Demo-2a: Switch a program status on the other core
 \          Send the switch data to the other core
+need bootkey?
+
 : BUTTON        ( -- )
     false  begin
-    s? 0= if  invert dup fifo!  1 ms  then
-        begin  s? until  10 ms
+    bootkey? if  invert dup fifo!  1 ms  then
+        begin  10 us  bootkey? until  10 ms
     key? until  drop  empty-fifo ;
 %%
 
@@ -4824,7 +4829,8 @@ chapter RESPONSE
             else      cr ." I am in mode-2 "
             then
         then
-        1+ dup hx 800 = if  dup -  ch . emit  then  dm 300 us
+        1+ dup hx 800 = if  dup -  ch . emit  then
+        dm 300 us
     key? until  drop  empty-fifo ;
 %%
 
