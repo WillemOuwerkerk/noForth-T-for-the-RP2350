@@ -321,155 +321,187 @@ cr .( Test S? ) s? .
 %%
 
 chapter 48MHZ
-v: inside
-MAX-CLK
-dm 48,000,000   over !  cell+       \ PLL clock
-hx 90           over h! 2 +         \ Core voltage 1.0V
-hx 3C53         over h! 2 +         \ PLL dividers
-1 1 b+b         swap !              \ Peripheral & USB/ADC clock
-4 cfg @ [if]                        \ Is it a duo version?
-    ramborder 3C44 + >r             \ MAX-CLK of core1
-    MAX-CLK @+      r@  !           \ Copy clock table
-    @+              r@ cell+  !
-    @               r> cell+ cell+ !
+hx D000,0000 @ 0= [if]
+    v: inside
+    MAX-CLK
+    dm 48,000,000   over !  cell+       \ PLL clock
+    hx 90           over h! 2 +         \ Core voltage 1.0V
+    hx 3C53         over h! 2 +         \ PLL dividers
+    1 1 b+b         swap !              \ Peripheral & USB/ADC clock
+    4 cfg @ [if]                        \ Is it a duo version?
+        ramborder 3C44 + >r             \ MAX-CLK of core1
+        MAX-CLK @+      r@  !           \ Copy clock table
+        @+              r@ cell+  !
+        @               r> cell+ cell+ !
+    [then]
+    max-clk @ dm 10000 /  0 cfg 2 + h!  \ Set maximum clock freq.
+    4 cfg @  abs  4 cfg !               \ Restart
+    v: fresh
+    config  led
+[else]
+     cr .( For use on core-0 only! )
 [then]
-max-clk @ dm 10000 /  0 cfg 2 + h!  \ Set maximum clock freq.
-4 cfg @  abs  4 cfg !               \ Restart
-v: fresh
-config  led
 %%
 
 chapter 96MHZ
-v: inside
-MAX-CLK
-dm 96,000,000   over !  cell+       \ PLL clock
-hx B0           over h! 2 +         \ Core voltage 1V
-hx 5052         over h! 2 +         \ PLL dividers
-1 2 b+b         swap !              \ Peripheral & USB/ADC clock
-4 cfg @ [if]                        \ Is it a duo version?
-    ramborder 3C44 + >r             \ MAX-CLK of core1
-    MAX-CLK @+      r@  !           \ Copy clock table
-    @+              r@ cell+  !
-    @               r> cell+ cell+ !
+hx D000,0000 @ 0= [if]
+    v: inside
+    MAX-CLK
+    dm 96,000,000   over !  cell+       \ PLL clock
+    hx B0           over h! 2 +         \ Core voltage 1V
+    hx 5052         over h! 2 +         \ PLL dividers
+    1 2 b+b         swap !              \ Peripheral & USB/ADC clock
+    4 cfg @ [if]                        \ Is it a duo version?
+        ramborder 3C44 + >r             \ MAX-CLK of core1
+        MAX-CLK @+      r@  !           \ Copy clock table
+        @+              r@ cell+  !
+        @               r> cell+ cell+ !
+    [then]
+    max-clk @ dm 10000 /  0 cfg 2 + h!  \ Set maximum clock freq.
+    4 cfg @  abs  4 cfg !               \ Restart
+    v: fresh
+    config  led
+[else]
+     cr .( For use on core-0 only! )
 [then]
-max-clk @ dm 10000 /  0 cfg 2 + h!  \ Set maximum clock freq.
-4 cfg @  abs  4 cfg !               \ Restart
-v: fresh
-config  led
 %%
 
 chapter 144MHZ
+hx D000,0000 @ 0= [if]
 v: inside
-MAX-CLK
-dm 144,000,000  over !  cell+       \ PLL clock
-hx B0           over h! 2 +         \ Core voltage 1V
-hx 6042         over h! 2 +         \ PLL dividers
-1 3 b+b         swap !              \ Peripheral & USB/ADC clock
-4 cfg @ [if]                        \ Is it a duo version?
-    ramborder 3C44 + >r             \ MAX-CLK of core1
-    MAX-CLK @+  r@  !               \ Copy clock table
-    @+          r@ cell+  !
-    @           r> cell+ cell+ !
+    MAX-CLK
+    dm 144,000,000  over !  cell+       \ PLL clock
+    hx B0           over h! 2 +         \ Core voltage 1V
+    hx 6042         over h! 2 +         \ PLL dividers
+    1 3 b+b         swap !              \ Peripheral & USB/ADC clock
+    4 cfg @ [if]                        \ Is it a duo version?
+        ramborder 3C44 + >r             \ MAX-CLK of core1
+        MAX-CLK @+  r@  !               \ Copy clock table
+        @+          r@ cell+  !
+        @           r> cell+ cell+ !
+    [then]
+    max-clk @ dm 10000 /  0 cfg 2 + h!  \ Set maximum clock freq.
+    4 cfg @  abs  4 cfg !               \ Restart
+    v: fresh
+    config  led
+[else]
+     cr .( For use on core-0 only! )
 [then]
-max-clk @ dm 10000 /  0 cfg 2 + h!  \ Set maximum clock freq.
-4 cfg @  abs  4 cfg !               \ Restart
-v: fresh
-config  led
 %%
 
 chapter 192MHZ
-v: inside
-MAX-CLK
-dm 192,000,000  over !  cell+       \ PLL clock
-hx 0D0          over h! 2 +         \ Core voltage 1.2V
-hx 4041         over h! 2 +         \ PLL dividers 12*64/4
-dm 2 4 b+b      swap !              \ Peripheral & USB/ADC clock
-4 cfg @ [if]                        \ Is it a duo version?
-    ramborder 3C44 + >r             \ MAX-CLK of core1
-    MAX-CLK @+      r@  !           \ Copy clock table
-    @+              r@ cell+  !
-    @               r> cell+ cell+ !
+hx D000,0000 @ 0= [if]
+    v: inside
+    MAX-CLK
+    dm 192,000,000  over !  cell+       \ PLL clock
+    hx 0D0          over h! 2 +         \ Core voltage 1.2V
+    hx 4041         over h! 2 +         \ PLL dividers 12*64/4
+    dm 2 4 b+b      swap !              \ Peripheral & USB/ADC clock
+    4 cfg @ [if]                        \ Is it a duo version?
+        ramborder 3C44 + >r             \ MAX-CLK of core1
+        MAX-CLK @+      r@  !           \ Copy clock table
+        @+              r@ cell+  !
+        @               r> cell+ cell+ !
+        [then]
+    dm 15,000   0 cfg 2 + h!            \ Set clock to 150MHz
+    4 cfg @  abs  4 cfg !               \ Restart
+    v: fresh
+    config  led
+[else]
+     cr .( For use on core-0 only! )
 [then]
-dm 15,000   0 cfg 2 + h!            \ Set clock to 150MHz
-4 cfg @  abs  4 cfg !               \ Restart
-v: fresh
-config  led
 %%
 
 chapter 240MHZ
-v: inside
-MAX-CLK
-dm 240,000,000  over !  cell+       \ PLL clock
-hx 0E0          over h! 2 +         \ Core voltage 1.25V
-hx 5041         over h! 2 +         \ PLL dividers
-dm 2 5 b+b      swap !              \ Peripheral & USB/ADC clock
-4 cfg @ [if]                        \ Is it a duo version?
-    ramborder 3C44 + >r             \ MAX-CLK of core1
-    MAX-CLK @+      r@  !           \ Copy clock table
-    @+              r@ cell+  !
-    @               r> cell+ cell+ !
+hx D000,0000 @ 0= [if]
+    v: inside
+    MAX-CLK
+    dm 240,000,000  over !  cell+       \ PLL clock
+    hx 0E0          over h! 2 +         \ Core voltage 1.25V
+    hx 5041         over h! 2 +         \ PLL dividers
+    dm 2 5 b+b      swap !              \ Peripheral & USB/ADC clock
+    4 cfg @ [if]                        \ Is it a duo version?
+        ramborder 3C44 + >r             \ MAX-CLK of core1
+        MAX-CLK @+      r@  !           \ Copy clock table
+        @+              r@ cell+  !
+        @               r> cell+ cell+ !
+    [then]
+    dm 15,000   0 cfg 2 + h!            \ Set clock to 150MHz
+    4 cfg @  abs  4 cfg !               \ Restart
+    v: fresh
+    config  led
+[else]
+     cr .( For use on core-0 only! )
 [then]
-dm 15,000   0 cfg 2 + h!            \ Set clock to 150MHz
-4 cfg @  abs  4 cfg !               \ Restart
-v: fresh
-config  led
 %%
 
 chapter 384MHZ
-v: inside
-MAX-CLK
-dm 384,000,000  over !  cell+       \ PLL clock
-hx 110          over h! 2 +         \ Core voltage 1.4V
-hx 8041         over h! 2 +         \ PLL dividers
-dm 3 8 b+b      swap !              \ Peripheral & USB/ADC clock
-4 cfg @ [if]                        \ Is it a duo version?
-    ramborder 3C44 + >r             \ MAX-CLK of core1
-    MAX-CLK @+      r@  !           \ Copy clock table
-    @+              r@ cell+  !
-    @               r> cell+ cell+ !
+hx D000,0000 @ 0= [if]
+    v: inside
+    MAX-CLK
+    dm 384,000,000  over !  cell+       \ PLL clock
+    hx 110          over h! 2 +         \ Core voltage 1.4V
+    hx 8041         over h! 2 +         \ PLL dividers
+    dm 3 8 b+b      swap !              \ Peripheral & USB/ADC clock
+    4 cfg @ [if]                        \ Is it a duo version?
+        ramborder 3C44 + >r             \ MAX-CLK of core1
+        MAX-CLK @+      r@  !           \ Copy clock table
+        @+              r@ cell+  !
+        @               r> cell+ cell+ !
+    [then]
+    dm 15,000   0 cfg 2 + h!            \ Set clock to 150MHz
+    4 cfg @  abs  4 cfg !               \ Restart
+    v: fresh
+    config  led
+[else]
+     cr .( For use on core-0 only! )
 [then]
-dm 15,000   0 cfg 2 + h!            \ Set clock to 150MHz
-4 cfg @  abs  4 cfg !               \ Restart
-v: fresh
-config  led
 %%
 
 chapter 432MHZ
-v: inside
-MAX-CLK
-dm 432,000,000  over !  cell+       \ PLL clock
-hx 130          over h! 2 +         \ Core voltage 1.6V
-hx 4821         over h! 2 +         \ PLL dividers
-dm 4 9 b+b      swap !              \ Peripheral & USB/ADC clock
-4 cfg @ [if]                        \ Is it a duo version?
-    ramborder 3C44 + >r             \ MAX-CLK of core1
-    MAX-CLK @+      r@  !           \ Copy clock table
-    @+              r@ cell+  !
-    @               r> cell+ cell+ !
+hx D000,0000 @ 0= [if]
+    v: inside
+    MAX-CLK
+    dm 432,000,000  over !  cell+       \ PLL clock
+    hx 130          over h! 2 +         \ Core voltage 1.6V
+    hx 4821         over h! 2 +         \ PLL dividers
+    dm 4 9 b+b      swap !              \ Peripheral & USB/ADC clock
+    4 cfg @ [if]                        \ Is it a duo version?
+        ramborder 3C44 + >r             \ MAX-CLK of core1
+        MAX-CLK @+      r@  !           \ Copy clock table
+        @+              r@ cell+  !
+        @               r> cell+ cell+ !
+    [then]
+    dm 15,000   0 cfg 2 + h!            \ Set clock to 150MHz
+    4 cfg @  abs  4 cfg !               \ Restart
+    v: fresh
+    config  led
+[else]
+     cr .( For use on core-0 only! )
 [then]
-dm 15,000   0 cfg 2 + h!            \ Set clock to 150MHz
-4 cfg @  abs  4 cfg !               \ Restart
-v: fresh
-config  led
 %%
 
 chapter 480MHZ
+hx D000,0000 @ 0= [if]
 v: inside
-MAX-CLK
-dm 480,000,000  over !  cell+       \ PLL clock
-hx 150          over h! 2 +         \ Core voltage 1.7V
-hx 5021         over h! 2 +         \ PLL dividers
-4 0A b+b        swap !              \ Peripheral & USB/ADC clock
-4 cfg @ [if]                        \ Is it a duo version?
-    ramborder 3C44 + >r             \ MAX-CLK of core1
-    MAX-CLK @+      r@  !           \ Copy clock table
-    @+              r@ cell+  !
-    @               r> cell+ cell+ !
+    MAX-CLK
+    dm 480,000,000  over !  cell+       \ PLL clock
+    hx 150          over h! 2 +         \ Core voltage 1.7V
+    hx 5021         over h! 2 +         \ PLL dividers
+    4 0A b+b        swap !              \ Peripheral & USB/ADC clock
+    4 cfg @ [if]                        \ Is it a duo version?
+        ramborder 3C44 + >r             \ MAX-CLK of core1
+        MAX-CLK @+      r@  !           \ Copy clock table
+        @+              r@ cell+  !
+        @               r> cell+ cell+ !
+    [then]
+    dm 15,000   0 cfg 2 + h!            \ Set clock to 150MHz
+    4 cfg @  abs  4 cfg !               \ Restart
+    v: fresh
+    config  led
+[else]
+     cr .( For use on core-0 only! )
 [then]
-dm 15,000   0 cfg 2 + h!            \ Set clock to 150MHz
-4 cfg @  abs  4 cfg !               \ Restart
-v: fresh
-config  led
 %%
 
 chapter 38K4
