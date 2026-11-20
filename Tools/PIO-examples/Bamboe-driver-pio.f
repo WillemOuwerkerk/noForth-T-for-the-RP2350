@@ -1,5 +1,8 @@
 (* Variable length bamboe driver (1 to 8) in only 8 PIO-opcodes
 
+A bamboe is a compact 74HC4094 serial to parallel driver module 
+of the Dutch Forth users group
+
 \ 6 bitmask   constant OUT  \ Bamboe data out
 \ 7 bitmask   constant CLK  \ Bamboe clock
 \ 8 bitmask   constant STR  \ Bamboe strobe

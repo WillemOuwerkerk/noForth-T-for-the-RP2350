@@ -97,8 +97,8 @@ create RELOAD  10 ,     \ TRANS_COUNT0 reload
 : START         ( -- )
     0955 10 5020,0010 opcodes1  0 set-dma   \ DMA 0 for state machine 0
     0009 01 5000,001C reload    1 set-dma   \ DMA 1 for state machine 0
-    9955 10 5020,0014 opcodes2  2 set-dma ; \ DMA 2 for state machine 1
-    1009 01 5000,009C reload    3 set-dma   \ DMA 3 for state machine 1
+    9955 10 5020,0014 opcodes2  2 set-dma   \ DMA 2 for state machine 1
+    1009 01 5000,009C reload    3 set-dma ; \ DMA 3 for state machine 1
 
 
 \ Modify the code in the PIO-opcodes array. It calculates
