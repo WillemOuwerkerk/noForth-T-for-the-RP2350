@@ -177,7 +177,7 @@ meta definitions also
 : }} ; immediate
 
 
-\ 5 labels
+\ 7 labels
 0 value AMSTERDAM
 0 value ROTTERDAM
 0 value NOCATCHFRAME
@@ -206,7 +206,7 @@ here                    40000 allot \ 256 kByte UF2 file buffer
 constant UF2-BUFFER
 constant BINARY-BUFFER
 
-: TARGANO?  ( adr -- err? )         20080000 2000000 within ;
+: TARGANO?  ( adr -- err? )         20080000 20000000 within ;
 : >HOSTA?   ( ta1 -- ha2 err? )     dup 20000000 -  image +  swap targano?  ;
 : >TARGA?   ( ha1 -- ta2 err? )     image -  20000000 +  dup targano? ;
 
@@ -225,7 +225,7 @@ only forth also definitions  \ -voc-
 \ <---- Intro ---->
 
 <----  IMAGE
-IMAGE is the address of 64k free space on the host.
+IMAGE is the address of 512k free space on the host.
 In that space the image of noforth is built.
 IMAGE is calculated automatically when meta-compiling starts,
 see :::NOFORTH:::
