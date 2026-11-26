@@ -142,6 +142,7 @@ E48BFF56    value FID       \ Family ID for RP2040 by default
 : MAKE.UF2      ( ccc -- )      \ Make uf2 file from binary image
     10000000 to 'target         \ Initialise UF2 converter
     uf2-buffer to 'ptr
+( ) #addr 100 FF fill           \ Fill an extra page of memory with FF
     calc-blocks  build-uf2
     uf2-file count              \ Get UF2 file name
     w/o bin create-file         \ (Re)define UF2 file
