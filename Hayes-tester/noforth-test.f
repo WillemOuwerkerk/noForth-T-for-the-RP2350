@@ -248,7 +248,7 @@ T{ 0 B1 get* 1 B1 get* 9 B1 get* -> 0 0 200 }T
 T{ 12345678 rev -> 78563412 }T
 T{ 11223344 rev -> 44332211 }T
 
-{T 0 bitmask -> 1 }T
+T{ 0 bitmask -> 1 }T
 T{ 3 bitmask -> 8 }T
 T{ 10 bitmask -> 10000 }T
 T{ 20 bitmask -> 0 }T
