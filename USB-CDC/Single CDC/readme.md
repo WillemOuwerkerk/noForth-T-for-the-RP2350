@@ -7,7 +7,7 @@ The whole driver only needs about 3200 bytes.
     1) Task-1 for the setup stage and input of data
     2) Task-2 does output data but only when a connection is live.
 
-The word USB-ON activates this CDC driver.
+The word USB-ON activates this USB CDC driver.
 
 ***
 
@@ -20,10 +20,10 @@ After noForth t is booted, take the following actions.
     2) Load the file: USB-XS-005-RP2350a.f
     3) Type: USB-ON <enter> and ready
     4) To make it permanent type: FREEZE <enter>
-       Restart noForth t with USB by typing: COLD
+       Restart noForth t with USB by typing: COLD or reset the board
 
 <br>
 <p align="center">
   <img width="750" height="600" alt="Waveshare RP2350 boards" src="../../Pics/RP2350-zero+power.jpg" />
-  <br><b>Waveshare RP2350-Zero board on 48MHz</b>
+  <br><b>Waveshare RP2350-Zero board via USB at 48 MHz with a power consumption of just 3.35 mA</b>
 </p> 
