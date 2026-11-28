@@ -3,8 +3,8 @@
 **Single core meta:**
 - Start Win32Forth
 - Select the folder: Meta-solo
-- include T-meta-2026-jul28.f
-- include T-targ-2350aug17a.f
+- include T-meta-2350-solo-nov26.f
+- include T-targ-2350-solo-nov26.f
     - Type **+** key (or - key for a version without vocabularies)
     - Type **.** key
           
@@ -16,8 +16,8 @@ example: noforth t RP2350 solo 260829.uf2
 Note the meta compiler uses these files:
 - noForth-T-asm-M33.f
 - RP2040-DAS.f
-- T-meta-2026-jul28.f
-- T-targ-2350aug17a.f
+- T-meta-2350-solo-nov26.f
+- T-targ-2350-solo-nov26.f
 - boot-nof4b.f
 - boot-nof4b.bin
 
