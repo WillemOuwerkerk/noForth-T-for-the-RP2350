@@ -3,13 +3,13 @@
 **Dual core meta:**
 - Start Win32Forth
 - Select the folder: Meta-duo
-- include T-meta-2350a.f
-- include T-targ-18aug26-rp2350a.f
+- include T-meta-2350-duo-nov26a.f
+- include T-targ-2350-duo-nov26a.f
     - Type **+** key (or - key for a version without vocabularies)
     - Type **.** key
 - Type: EMPTY
-- include T-meta-2350b.f
-- include T-targ-18aug26-rp2350b.f
+- include T-meta-2350-duo-nov26b.f
+- include T-targ-2350-duo-nov26b.f
     - Type **+** key (or - key for a version without vocabularies)
     - Type **.** key
 
@@ -22,10 +22,10 @@ example: noforth t RP2350 duo 260829.uf2
 Note the meta compiler uses these files:
 - noForth-T-asm-M33.f
 - RP2040-DAS.f
-- T-meta-2350a.f
-- T-meta-2350b.f
-- T-targ-18aug26-rp2350a.f
-- T-targ-18aug26-rp2350b.f
+- T-meta-2350-duo-nov26a.f
+- T-meta-2350-duo-nov26b.f
+- T-targ-2350-duo-nov26a.f
+- T-targ-2350-duo-nov26b.f
 - boot-nof4b.bin
 
 **Take care:**
